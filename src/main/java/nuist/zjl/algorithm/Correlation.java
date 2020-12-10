@@ -35,7 +35,7 @@ public class Correlation {
         BigDecimal numOfR = sumXY.subtract(sumX.multiply(sumY).divide(new BigDecimal(n), new MathContext(PRECISION)));
         BigDecimal denOfR = sumXPow.subtract(sumX.pow(2).divide(new BigDecimal(n), new MathContext(PRECISION))).multiply(
                 sumYPow.subtract(sumY.pow(2).divide(new BigDecimal(n), new MathContext(PRECISION)))).sqrt(new MathContext(PRECISION));
-        BigDecimal r = numOfR.divide(denOfR, new MathContext(PRECISION));
+        BigDecimal r = denOfR.equals(BigDecimal.valueOf(0.0)) ? BigDecimal.valueOf(0.0) : numOfR.divide(denOfR, new MathContext(PRECISION));
         System.out.println("pearson: " + r.toString());
         return null;
     }
