@@ -14,11 +14,11 @@ import java.util.Map;
 /**
  * Bray-Curtis矩阵求解类
  */
-public class DistanceMatrix {
+public class Distance {
     private Map<String, Method> methodMap;
     private final int PRECISION = 10;  //精度，即保留有效数字的位数
 
-    public DistanceMatrix() {
+    public Distance() {
         //类初始化时将所有方法，放入methodMap
         Method[] methods = this.getClass().getDeclaredMethods();
         methodMap = new HashMap<>();
@@ -121,7 +121,7 @@ public class DistanceMatrix {
     public static void main(String[] args) throws Exception {
         //获取列数据列表
         List<List<String>> colList = POIUtils.readDataByCol("C:\\Users\\36085\\Desktop\\microbial_sci\\raw_figures\\mental_test\\jsen.xlsx");
-        DistanceMatrix brayCurtis = new DistanceMatrix();
+        Distance brayCurtis = new Distance();
         List<List<String>> resultList = brayCurtis.getDistanceMatrix(colList, "euclideanDis");
         XSSFWorkbook workbook = POIUtils.getWorkBookFromList(resultList);
         POIUtils.getExcelFileFromWorkbook(workbook, new File("C:\\Users\\36085\\Desktop\\microbial_sci\\raw_figures\\mental_test\\xxxxx.xlsx"));
