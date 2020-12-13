@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Bray-Curtis矩阵求解类
+ * 矩阵求解类
  */
 public class Distance {
     private Map<String, Method> methodMap;
